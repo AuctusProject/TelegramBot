@@ -17,7 +17,9 @@ from model import User, Message, MessageHide, UserBan, session
 from time import strftime
 import re
 import unidecode
+import json
 
+data = json.load(open('root/auctus-telegram-bot/variables.json'))
 
 class TelegramMonitorBot:
 
@@ -25,7 +27,7 @@ class TelegramMonitorBot:
     def __init__(self):
         self.debug = os.environ.get('DEBUG') is not None
 
-        self.safe_user_ids = map(int, os.environ['SAFE_USER_IDS'].split(','))
+        self.safe_user_ids = map(int, data['SAFE_USER_IDS'].split(','))
 
         self.message_ban_patterns = os.environ['MESSAGE_BAN_PATTERNS']
         self.message_ban_re = (re.compile(
@@ -33,13 +35,13 @@ class TelegramMonitorBot:
             re.IGNORECASE | re.VERBOSE)
             if self.message_ban_patterns else None)
 
-        self.message_hide_patterns = os.environ['MESSAGE_HIDE_PATTERNS']
+        self.message_ban_patterns = data['MESSAGE_BAN_PATTERNS']
         self.message_hide_re = (re.compile(
             self.message_hide_patterns,
             re.IGNORECASE | re.VERBOSE)
             if self.message_hide_patterns else None)
 
-        self.name_ban_patterns = os.environ['NAME_BAN_PATTERNS']
+        self.name_ban_patterns = data['NAME_BAN_PATTERNS']
         self.name_ban_re = (re.compile(
             self.name_ban_patterns,
             re.IGNORECASE | re.VERBOSE)
@@ -203,7 +205,7 @@ class TelegramMonitorBot:
         """Start the bot."""
 
         # Create the EventHandler and pass it your bot's token.
-        updater = Updater(os.environ["TELEGRAM_BOT_TOKEN"])
+        updater = Updater(data['TELEGRAM_BOT_TOKEN'])
 
         # Get the dispatcher to register handlers
         dp = updater.dispatcher
