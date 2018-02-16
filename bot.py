@@ -29,7 +29,7 @@ class TelegramMonitorBot:
 
         self.safe_user_ids = map(int, data['SAFE_USER_IDS'].split(','))
 
-        self.message_ban_patterns = os.environ['MESSAGE_BAN_PATTERNS']
+        self.message_ban_patterns = data['MESSAGE_BAN_PATTERNS']
         self.message_ban_re = (re.compile(
             self.message_ban_patterns,
             re.IGNORECASE | re.VERBOSE)
