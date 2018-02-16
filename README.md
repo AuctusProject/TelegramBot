@@ -29,7 +29,7 @@ Forked from OriginProtocol and added few modifications.
  
  ```
  {
-"TELEGRAM_BOT_POSTGRES_URL": "postgresql://<user>:<pw>@localhost/<database>",
+	"TELEGRAM_BOT_POSTGRES_URL": "postgresql://<user>:<pw>@localhost/<database>",
 	"TELEGRAM_BOT_TOKEN":"<tokenCode>",
 	"SAFE_USER_IDS":"list of trusted ids, comma separated",
 	"MESSAGE_HIDE_PATTERNS":|[0-9a-fA-Z]{34,34},
