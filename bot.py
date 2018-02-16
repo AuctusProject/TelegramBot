@@ -35,7 +35,7 @@ class TelegramMonitorBot:
             re.IGNORECASE | re.VERBOSE)
             if self.message_ban_patterns else None)
 
-        self.message_ban_patterns = data['MESSAGE_BAN_PATTERNS']
+        self.message_hide_patterns = data['MESSAGE_HIDE_PATTERNS']
         self.message_hide_re = (re.compile(
             self.message_hide_patterns,
             re.IGNORECASE | re.VERBOSE)
