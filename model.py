@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 import os
 import json
 
-data = json.load(open('/root/auctus-telegram-bot/variables.json'))
+data = json.load(open('root/auctus-telegram-bot/variables.json'))
 postgres_url = data['TELEGRAM_BOT_POSTGRES_URL']
 
 
