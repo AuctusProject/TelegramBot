@@ -19,7 +19,7 @@ import re
 import unidecode
 import json
 
-data = json.load(open('variables.json'))
+data = json.load(open('root/auctus-telegram-bot/variables.json'))
 
 class TelegramMonitorBot:
 
@@ -78,7 +78,9 @@ class TelegramMonitorBot:
 
         # Remove accents from letters (é->e, ñ->n, etc...)
         message = unidecode.unidecode(update.message.text)
-        # TODO: Replace lookalike unicode characters:
+        print("teste: " + self.message_hide_re.pattern)
+	print("teste 2" + self.message_hide_patterns)
+	# TODO: Replace lookalike unicode characters:
         # https://github.com/wanderingstan/Confusables
 
         if self.message_ban_re and self.message_ban_re.search(message):
