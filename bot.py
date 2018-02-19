@@ -19,7 +19,7 @@ import re
 import unidecode
 import json
 
-data = json.load(open('/root/auctus-telegram-bot/variables.json'))
+data = json.load(open('root/auctus-telegram-bot/variables.json'))
 
 class TelegramMonitorBot:
 
